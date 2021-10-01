@@ -13,6 +13,7 @@ import { AntDesign } from '@expo/vector-icons';
 import colors from './colors';
 import tempData from './tempData';
 import TodoList from './components/TodoList';
+import AddListModal from './components/AddListModal';
 
 export default function App() {
   const [addTodoVisible, setAddTodoVisible] = useState(false);
@@ -29,9 +30,11 @@ export default function App() {
         visible={addTodoVisible}
         onRequestClose={() => toggleAddTodoModal()}
       >
-        <View>
-          <Text>Modal test</Text>
-        </View>
+        <AddListModal
+          closeModal={() => {
+            toggleAddTodoModal();
+          }}
+        />
       </Modal>
       <View style={{ flexDirection: 'row' }}>
         <View style={styles.divider} />
